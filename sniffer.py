@@ -6,7 +6,6 @@ import netifaces
 import sys
 
 def analyze_packet(packet):
-    # pkt_cnt += 1
     ts = datetime.now()
     print("\n" * 2)
     print("_______________________________________")
@@ -34,6 +33,7 @@ def main():
 
     print('[INFO] Scapy Sniffer')
     print('[INFO] Author: Marco A. Greco')
+    print('[INFO] Start sniffing on', sys.argv[1])
     pck_threshold = 1000
 
     if(len(sys.argv) != 3 and len(sys.argv) != 4):
@@ -49,10 +49,11 @@ def main():
         print('[Error] Interface '+sys.argv[1]+" is not online.")
         print('[Error] Aborting.')
         exit(-1)
-    
+
     if(pck_threshold == 0):
-        sniff(iface = sys.argv[1], prn=analyze_packet, count=pck_threshold)
-    else:    
+        print(sys.argv[1])
+        sniff(iface = sys.argv[1], prn=analyze_packet)
+    else:
         sniff(iface = sys.argv[1], prn=analyze_packet, count=pck_threshold)
 
 if __name__ == '__main__':
