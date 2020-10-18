@@ -51,11 +51,8 @@ def main():
         print('[Error] Aborting.')
         exit(-1)
 
-    if(pck_threshold == 0):
-        print(sys.argv[1])
-        sniff(iface = sys.argv[1], prn=analyze_packet)
-    else:
-        sniff(iface = sys.argv[1], prn=analyze_packet, count=pck_threshold)
+   
+    sniff(iface = sys.argv[1], prn=analyze_packet, count=pck_threshold)
 
 if __name__ == '__main__':
     main()
