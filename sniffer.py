@@ -12,6 +12,7 @@ def analyze_packet(packet):
     print("_______________________________________")
     print(ts.strftime("%m/%d/%Y, %H:%M:%S"))
     packet.show()
+    print("_______________________________________")
 
     write_packet(packet, sys.argv[2])
 
@@ -32,7 +33,7 @@ def interface_check(interface):
 def main():
 
     print('[INFO] Scapy Sniffer')
-    print('Author: Marco A. Greco')
+    print('[INFO] Author: Marco A. Greco')
     pck_threshold = 1000
 
     if(len(sys.argv) != 3 and len(sys.argv) != 4):
