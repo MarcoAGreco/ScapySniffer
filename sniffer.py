@@ -34,7 +34,7 @@ def main():
     print('[INFO] Scapy Sniffer')
     print('[INFO] Author: Marco A. Greco')
     print('[INFO] Start sniffing on', sys.argv[1])
-    pck_threshold = 1000
+    pck_threshold = 0
 
     if(len(sys.argv) != 3 and len(sys.argv) != 4):
         print('[Error] Wrong syntax.')
@@ -44,6 +44,7 @@ def main():
     if(len(sys.argv) == 4):
         if(sys.argv[3].isdecimal()):
             pck_threshold = int(sys.argv[3])
+            print('[INFO] Threshold: '+str(pck_threshold)+' packages')
 
     if interface_check(sys.argv[1]):
         print('[Error] Interface '+sys.argv[1]+" is not online.")
