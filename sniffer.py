@@ -30,11 +30,14 @@ def interface_check(interface):
     return not netifaces.AF_INET in addr
 
 def main():
+
+    print('[INFO] Scapy Sniffer')
+    print('Author: Marco A. Greco')
     pck_threshold = 1000
 
     if(len(sys.argv) != 3 and len(sys.argv) != 4):
         print('[Error] Wrong syntax.')
-        print('[Error] Example: python3 start_sniff interface output.pcap [packet_count]')
+        print('[Error] Example: python3 sniffer.py wlan0 output.pcap [packet_count]')
         exit(-1)
 
     if(len(sys.argv) == 4):
